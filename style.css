@@ -7,11 +7,11 @@ body {
   padding: 0;
   background-color: rgb(40, 37, 37);
   height: 100%;
+  font-size: 16px;
 }
 .app-container {
   display: flex;
   flex-direction: column;
-  max-width: 800px;
   margin: 0;
   height: 100vh;
   overflow: hidden;
@@ -43,14 +43,14 @@ header .header {
   gap: 5px;
 }
 .chat-bot span {
-  background-color: rgb(65, 62, 62); 
-  color: rgb(68, 124, 75); 
+  background-color: rgb(80, 76, 76); 
+  color: rgb(95, 183, 107); 
   border-radius: 25px;
   padding: 5px;
 }
 .chat-bot p {
   background-color: rgb(65, 62, 62); 
-  color: rgb(68, 124, 75); 
+  color: rgb(95, 183, 107); 
   padding: 5px;
   border-radius: 10px;
 }
@@ -70,28 +70,51 @@ header .header {
 .chat-input {
   padding: 20px;
   margin: 0;
-  display: flex;
+  display:flex;
   gap: 10px;
   flex-shrink: 0;
+
 }
-.chat-input input  {
+.chat-input .input-side{
+  display: flex;
   flex: 1;
-  height: 15px;
-  font-size: 16px;
   border-color: rgb(68, 124, 75);
   border: 2px solid rgb(68, 124, 75);
-  background-color: rgba(240, 248, 255, 0);
+  background-color: transparent;
   border-radius: 15px;
-  padding: 10px 10px;
-  color: rgb(138, 154, 139);
+  padding: 10px 7px;
+  gap: 10px;
+  wrap: wrap;
+}
+.chat-input .input-side span {
+  color: white;
+  font-size: 12px;
+}
+.chat-input .input-side input {
+  height: 15;
+  font-size: 16px;
+  border: none; 
+  background-color: transparent; 
+  color: rgb(209, 216, 210);
+  outline: none; /* Removes focus outline */
 }
 .chat-input button {
   border-radius: 15px;
   border: none;
-  padding: 8px 5px;
-  background-color: rgb(65, 62, 62);
+  padding: 8px;
+  color: white;
+  background-color: #777474;
   cursor: pointer;
 }
 .chat-input button:hover{
   background-color: rgb(68, 124, 75);
 }
+.drag-over {
+  border-color: #68a047; /* Change border color to indicate drag over */
+  background-color: #f4f6f7; /* Optional: change background color */
+}
+#file-input {
+  display: none;
+}
+
+

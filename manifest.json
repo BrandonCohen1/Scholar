@@ -10,7 +10,9 @@
   },
   "permissions": [
     "sidePanel",
-    "contextMenus"
+    "contextMenus",
+    "tabs",
+    "activeTab"
   ], 
   "side_panel": {
     "default_path": "sidepanel.html"
