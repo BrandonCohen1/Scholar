@@ -14,13 +14,16 @@
     "tabs",
     "activeTab"
   ], 
+  "host_permissions": [
+    "http://localhost:8080/*"
+  ],
   "side_panel": {
-    "default_path": "sidepanel.html"
+    "default_path": "/client/html/sidepanel.html"
   }, 
   "content_scripts": [
     {
       "js": ["content-script.js"],
-      "matches": ["https://google.com/*"]
+      "matches": ["<all_urls>"]
     }
   ]
 }

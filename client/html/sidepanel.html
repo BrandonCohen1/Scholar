@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap">
+  <link rel="stylesheet" href="/client/css/style.css">
+  <script src="/client/js/button-worker.js" defer></script>
+  <script src="/client/js/chatting-worker.js" defer></script>
+  <title>Chat Page</title>
+</head>
+
+<body class="page">
+
+  <div class="app-container">
+
+    <header class="header">
+      <h2 class="header">
+        scolarly
+      </h2>
+    </header>
+
+    <ul class="chat-container">
+
+      <li class="chat bot">
+        <span>SC</span>
+        <p>Hello, how are you!</p>
+      </li>
+    </ul>
+    <div class="selected-files-container">
+      <span>Selected files :</span>
+      <span class="selected-files"></span>
+    </div>
+    <div class="chat-input">
+      <div class="file-attach">
+        <input id="file-input" type="file" multiple>
+        <button id="file-select-btn">Select File</button>
+      </div>
+      <textarea placeholder="Enter question ..."></textarea>
+      <span class="send-button">Send</span>
+    </div>
+
+</body>
+
+</html>

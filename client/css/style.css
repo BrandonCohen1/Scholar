@@ -36,75 +36,78 @@ header .header {
   padding: 10px;
   max-height: calc(100vh - 45px);
 }
-.chat-bot {
+.bot {
   margin: 0;
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.chat-bot span {
-  background-color: rgb(80, 76, 76); 
+.bot span {
   color: rgb(95, 183, 107); 
   border-radius: 25px;
   padding: 5px;
 }
-.chat-bot p {
+.bot p {
   background-color: rgb(65, 62, 62); 
   color: rgb(95, 183, 107); 
   padding: 5px;
+  margin-right: 50px;
   border-radius: 10px;
 }
-.chat-user {
+.user {
   display: flex;
   justify-content: flex-end; /* Aligns the child elements to the right */
 }
-
-.chat-user p {
+.user p {
   color: black;
   background-color: rgb(68, 124, 75);
-  padding: 5px 8px;
+  padding: 5px 5px;
   border-radius: 10px; 
-  margin: 0 10px 10px 0;
+  margin: 5px 10px 0px 50px;
   display: inline-flex;
 }
 .chat-input {
-  padding: 20px;
-  margin: 0;
-  display:flex;
-  gap: 10px;
-  flex-shrink: 0;
-
-}
-.chat-input .input-side{
+  margin: 5px 10px 20px 10px;
   display: flex;
-  flex: 1;
-  border-color: rgb(68, 124, 75);
   border: 2px solid rgb(68, 124, 75);
   background-color: transparent;
-  border-radius: 15px;
+  border-radius: 23px;
   padding: 10px 7px;
-  gap: 10px;
+  gap: 5px;
   wrap: wrap;
 }
-.chat-input .input-side span {
-  color: white;
-  font-size: 12px;
-}
-.chat-input .input-side input {
+.chat-input textarea {
   height: 15;
-  font-size: 16px;
+  font-size: 15px;
+  font-family: Ubuntu;
+  width: 100%;
   border: none; 
   background-color: transparent; 
   color: rgb(209, 216, 210);
   outline: none; /* Removes focus outline */
 }
-.chat-input button {
+.chat-input button{
   border-radius: 15px;
   border: none;
   padding: 8px;
   color: white;
   background-color: #777474;
   cursor: pointer;
+}
+.chat-input span{
+  border-radius: 15px;
+  border: none;
+  padding: 8px;
+  color: white;
+  background-color: #777474;
+  cursor: pointer;
+}
+.chat-input span:hover{
+  background-color: rgb(68, 124, 75);
+}
+#send-button {
+  margin: 5px;
+  border-radius: 23px;
 }
 .chat-input button:hover{
   background-color: rgb(68, 124, 75);
@@ -116,5 +119,11 @@ header .header {
 #file-input {
   display: none;
 }
-
-
+.selected-files-container{
+  border-radius: 15px;
+  border: 1px solid rgb(141, 137, 137);
+  padding: 10px;
+  margin: 10px 10px 0 10px;
+  display: block;
+  color: white;
+}
