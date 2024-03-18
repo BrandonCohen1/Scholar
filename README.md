@@ -32,7 +32,7 @@ To get started, follow these steps:
 To deploy Scholar locally:
 
 1. Install Dependencies:
-  - Run the following command in the project's root directory to install necessary dependencies
+  - Run the following command in the project's '**root-directory/server**' to install necessary dependencies
 
       ```bash
       npm install
