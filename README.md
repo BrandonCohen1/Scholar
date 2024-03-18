@@ -49,7 +49,7 @@ To deploy Scholar locally:
 
 To install the "Scholar" extension in your Chrome browser and start enhancing your research and writing process, follow these steps:
 
-1. Visit [chrome extension](chrome://extensions/)
+1. Visit *chrome://extensions/*
 2. Tuen on the toogle for "**Developer mode**" at the top right
 3. Click "**Load unpacked**" and select your extension's folder
 4. **Scholar** should now appear in the extensions list and be ready to use.
