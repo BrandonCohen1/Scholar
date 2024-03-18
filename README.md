@@ -54,12 +54,4 @@ To install the "Scholar" extension in your Chrome browser and start enhancing yo
 3. Click "**Load unpacked**" and select your extension's folder
 4. **Scholar** should now appear in the extensions list and be ready to use.
 
-Open Extensions: Go to chrome://extensions/ in Chrome.
-
-Enable Developer Mode: Turn on the toggle for "Developer mode" at the top right.
-
-Load Extension: Click Load unpacked and select your extension's folder.
-
-Confirm: Your extension, "Scholar," should now appear in the extensions list and be ready to use.
-
 With these steps, you should have Scholar set up and running. Dive into your research and writing tasks with enhanced confidence and support!
