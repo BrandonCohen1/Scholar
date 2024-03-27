@@ -3,6 +3,7 @@ const chatInput = document.querySelector(".chat-input textarea");
 const sendChatBtn = document.querySelector(".chat-input span");
 const chatBox = document.querySelector(".chat-container");
 
+
 const API_KEY = "";
 let userMessage;
 
@@ -36,7 +37,6 @@ const handleChat = () => {
     chatBox.appendChild(incomingChatLI);
     generateResponse(incomingChatLI);
   }, 10000);
-  console.log("done")
 }
 
 const generateResponse = (incomingChatLI) => {
@@ -46,7 +46,6 @@ const generateResponse = (incomingChatLI) => {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   const raw = JSON.stringify(arr);
-  console.log("raw",raw)
 
   const requestOptions = {
     method: "POST",
@@ -54,21 +53,20 @@ const generateResponse = (incomingChatLI) => {
     body: raw,
     redirect: "follow"
   };
-  console.log("SDDDd")
   fetch("https://fastapi-production-9440.up.railway.app/chat/", requestOptions)
   .then((response) =>response.json())
   .then((result) => {
     text = result['result']
     sources = result['sources']
     add_message(text,'assistant')
-    messageElement.textContent = text
+    messageElement.innerHTML = text
+
   })
   .catch((error) => {
-    console.log('error')
+    console.log('error',error)
     messageElement.textContent = "Something is wrong. Please try again";
 
   });
-  console.log("done for real")
 
   // fetch('http://localhost:8080/api/chat', {
   //     method: 'POST',
