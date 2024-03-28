@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+body {
+  font-family: 'Ubuntu';
+  margin: 0;
+  padding: 0;
+  background-color: rgb(40, 37, 37);
+  height: 100%;
+  font-size: 16px;
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+header .header {
+  background-color: rgb(53, 68, 52);
+  color: rgb(216, 201, 201);
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  height: 30px;
+  flex-shrink: 0;
+}
+.chat-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 800;
+  margin: 0.1vh;
+  height: 90vh;
+  padding: 10px;
+  max-height: calc(100vh - 45px);
+}
+.bot {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.bot span {
+  color: rgb(95, 183, 107); 
+  border-radius: 25px;
+  padding: 5px;
+}
+.bot p {
+  background-color: rgb(65, 62, 62); 
+  color: rgb(95, 183, 107); 
+  padding: 5px;
+  margin-right: 50px;
+  border-radius: 10px;
+}
+.user {
+  display: flex;
+  justify-content: flex-end; /* Aligns the child elements to the right */
+}
+.user p {
+  color: black;
+  background-color: rgb(68, 124, 75);
+  padding: 5px 5px;
+  border-radius: 10px; 
+  margin: 5px 10px 0px 50px;
+  display: inline-flex;
+}
+.chat-input {
+  margin: 5px 10px 20px 10px;
+  display: flex;
+  border: 2px solid rgb(68, 124, 75);
+  background-color: transparent;
+  border-radius: 23px;
+  padding: 10px 7px;
+  gap: 5px;
+  wrap: wrap;
+}
+.chat-input textarea {
+  height: 15;
+  font-size: 15px;
+  font-family: Ubuntu;
+  width: 100%;
+  border: none; 
+  background-color: transparent; 
+  color: rgb(209, 216, 210);
+  outline: none; /* Removes focus outline */
+}
+.chat-input button{
+  border-radius: 15px;
+  border: none;
+  padding: 8px;
+  color: white;
+  background-color: #777474;
+  cursor: pointer;
+}
+.chat-input span{
+  border-radius: 15px;
+  border: none;
+  padding: 8px;
+  color: white;
+  background-color: #777474;
+  cursor: pointer;
+}
+.chat-input span:hover{
+  background-color: rgb(68, 124, 75);
+}
+#send-button {
+  margin: 5px;
+  border-radius: 23px;
+}
+.chat-input button:hover{
+  background-color: rgb(68, 124, 75);
+}
+.drag-over {
+  border-color: #68a047; /* Change border color to indicate drag over */
+  background-color: #f4f6f7; /* Optional: change background color */
+}
+#file-input {
+  display: none;
+}
+.selected-files-container{
+  border-radius: 15px;
+  border: 1px solid rgb(141, 137, 137);
+  padding: 10px;
+  margin: 10px 10px 0 10px;
+  display: block;
+  color: white;
+}

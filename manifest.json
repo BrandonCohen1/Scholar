@@ -1,0 +1,29 @@
+{
+  "name": "Scholar(ly)",
+  "description": "Integrate information between user, webpage, and attachment",
+  "version": "0.1",
+  "version_name": "Side panel added",
+  "manifest_version": 3,
+  "minimum_chrome_version": "116",
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "permissions": [
+    "sidePanel",
+    "contextMenus",
+    "tabs",
+    "activeTab"
+  ], 
+  "host_permissions": [
+    "http://localhost:8080/*"
+  ],
+  "side_panel": {
+    "default_path": "/client/html/sidepanel.html"
+  }, 
+  "content_scripts": [
+    {
+      "js": ["content-script.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Attach File</title>
+</head>
+<body>
+  <div class="file-popup-container">
+    <h2>Select File to Attach</h2>
+    <input type="file" id="file-select" name="file" multiple>
+    <button id="close-popup">Close</button>
+  </div>
+  <script>
+    document.getElementById('close-popup').addEventListener('click', function() {
+      window.close(); // Close the popup window
+    });
+  </script>
+</body>
+</html>
