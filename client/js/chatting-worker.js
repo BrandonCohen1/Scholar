@@ -31,12 +31,12 @@ const handleChat = () => {
   if (!userMessage) return;
   chatBox.appendChild(createChatLi(userMessage, "user"));
   chatInput.value = '';
-
+  
   setTimeout(() => {
-    const incomingChatLI = createChatLi("Hmmm...", "bot")
+    const incomingChatLI = createChatLi("Generating output...", "bot")
     chatBox.appendChild(incomingChatLI);
     generateResponse(incomingChatLI);
-  }, 10000);
+  }, 500);
 }
 
 const generateResponse = (incomingChatLI) => {

@@ -1,20 +1,42 @@
-const fileSelectBtn = document.getElementById('file-select-btn');
-const fileInput = document.getElementById('file-input');
-const selectedFiles = document.querySelector('.selected-files');
+const fileSelectBtn = document.getElementById("file-select-btn");
+const fileInput = document.getElementById("file-input");
+const selectedFiles = document.querySelector(".selected-files");
 
-fileSelectBtn.addEventListener('click', () => {
+let filesToUpload = [];
+
+fileSelectBtn.addEventListener("click", () => {
   fileInput.click();
 });
 
-fileInput.addEventListener('change', (e) => {
-  const fileCount = e.target.files;
+fileInput.addEventListener("change", (e) => {
+  filesToUpload = [];
+  filesToUpload = Array.from(e.target.files);
+  updateFileList();
+});
 
-  const ul = document.createElement('ul');
-  for (file of fileCount) {
-    const li = document.createElement('li');
-    li.textContent = `${file.name} - ${file.size} bytes`;
-    ul.appendChild(li);
+function updateFileList() {
+
+  let existingList = selectedFiles.querySelector('ul');
+  if (existingList) {
+    existingList.remove();
   }
-  selectedFiles.appendChild(ul);
 
-})
+  const ul = document.createElement("ul");
+  filesToUpload.forEach((file, index) => {
+    const li = document.createElement("li");
+    li.classList.add("file-listing");
+    li.textContent = `${file.name} - ${file.size} bytes`;
+    const removeFile = document.createElement("span");
+    (removeFile.textContent = "X"), (removeFile.className = "remove-File");
+    removeFile.style.cursor = "pointer";
+
+    removeFile.addEventListener("click", () => {
+      filesToUpload.splice(index, 1);
+
+      updateFileList();
+    });
+    li.appendChild(removeFile);
+    ul.appendChild(li);
+  }, selectedFiles.appendChild(ul));
+
+}

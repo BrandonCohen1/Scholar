@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
 body {
-  font-family: 'Ubuntu';
+  font-family: "Ubuntu";
   margin: 0;
   padding: 0;
   background-color: rgb(40, 37, 37);
@@ -43,13 +42,13 @@ header .header {
   gap: 5px;
 }
 .bot span {
-  color: rgb(95, 183, 107); 
+  color: rgb(95, 183, 107);
   border-radius: 25px;
   padding: 5px;
 }
 .bot p {
-  background-color: rgb(65, 62, 62); 
-  color: rgb(95, 183, 107); 
+  background-color: rgb(65, 62, 62);
+  color: rgb(95, 183, 107);
   padding: 5px;
   margin-right: 50px;
   border-radius: 10px;
@@ -62,7 +61,7 @@ header .header {
   color: black;
   background-color: rgb(68, 124, 75);
   padding: 5px 5px;
-  border-radius: 10px; 
+  border-radius: 10px;
   margin: 5px 10px 0px 50px;
   display: inline-flex;
 }
@@ -81,12 +80,12 @@ header .header {
   font-size: 15px;
   font-family: Ubuntu;
   width: 100%;
-  border: none; 
-  background-color: transparent; 
+  border: none;
+  background-color: transparent;
   color: rgb(209, 216, 210);
   outline: none; /* Removes focus outline */
 }
-.chat-input button{
+.chat-input button {
   border-radius: 15px;
   border: none;
   padding: 8px;
@@ -94,7 +93,7 @@ header .header {
   background-color: #777474;
   cursor: pointer;
 }
-.chat-input span{
+.chat-input span {
   border-radius: 15px;
   border: none;
   padding: 8px;
@@ -102,14 +101,14 @@ header .header {
   background-color: #777474;
   cursor: pointer;
 }
-.chat-input span:hover{
+.chat-input span:hover {
   background-color: rgb(68, 124, 75);
 }
 #send-button {
   margin: 5px;
   border-radius: 23px;
 }
-.chat-input button:hover{
+.chat-input button:hover {
   background-color: rgb(68, 124, 75);
 }
 .drag-over {
@@ -119,11 +118,20 @@ header .header {
 #file-input {
   display: none;
 }
-.selected-files-container{
+.selected-files-container {
   border-radius: 15px;
   border: 1px solid rgb(141, 137, 137);
   padding: 10px;
   margin: 10px 10px 0 10px;
   display: block;
   color: white;
+}
+.file-listing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+}
+.remove-File {
+  color: white;
+  cursor: pointer; /* Suggests it's clickable */
 }
