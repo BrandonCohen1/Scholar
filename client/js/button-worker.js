@@ -9,14 +9,28 @@ fileSelectBtn.addEventListener("click", () => {
 });
 
 fileInput.addEventListener("change", (e) => {
-  filesToUpload = [];
   filesToUpload = Array.from(e.target.files);
+
+  if (filesToUpload.length > 5) {
+    alert("You can only upload 5 files at a time.");
+    return;
+  }
+  const oversizedFiles = filesToUpload.filter((file) => file.size > 1048576);
+  if (oversizedFiles.length > 0) {
+    alert(
+      `The file(s) ${oversizedFiles
+        .map((file) => file.name)
+        .join(
+          ", "
+        )} is/are too large. Please upload files that are smaller than 1 MB.`
+    );
+    return;
+  }
   updateFileList();
 });
 
 function updateFileList() {
-
-  let existingList = selectedFiles.querySelector('ul');
+  let existingList = selectedFiles.querySelector("ul");
   if (existingList) {
     existingList.remove();
   }
@@ -38,5 +52,4 @@ function updateFileList() {
     li.appendChild(removeFile);
     ul.appendChild(li);
   }, selectedFiles.appendChild(ul));
-
 }

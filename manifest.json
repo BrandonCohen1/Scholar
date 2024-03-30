@@ -14,9 +14,6 @@
     "tabs",
     "activeTab"
   ], 
-  "host_permissions": [
-    "http://localhost:8080/*"
-  ],
   "side_panel": {
     "default_path": "/client/html/sidepanel.html"
   }, 

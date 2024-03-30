@@ -2,18 +2,17 @@
 const chatInput = document.querySelector(".chat-input textarea");
 const sendChatBtn = document.querySelector(".chat-input span");
 const chatBox = document.querySelector(".chat-container");
+const fileInput = document.getElementById('file-input');
 
 
-const API_KEY = "";
 let userMessage;
 
 let arr = [
   {"role": "user", "content": "Hi"},
-
   {"role": "assistant", "content": "Hi, how are you?"},
 ]
 
-function add_message(text,role="user"){
+function add_message(text, role="user"){
   arr.push({"role":role,"content":text})
 }
 const createChatLi = (message, className) => {
@@ -25,7 +24,6 @@ const createChatLi = (message, className) => {
 }
 
 const handleChat = () => {
-  console.log("start")
 
   userMessage = chatInput.value.trim();
   if (!userMessage) return;
@@ -41,7 +39,8 @@ const handleChat = () => {
 
 const generateResponse = (incomingChatLI) => {
   const messageElement = incomingChatLI.querySelector('p');
-  console.log('user message',userMessage )
+  const files = fileInput.files;
+
   add_message(userMessage)
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -60,28 +59,12 @@ const generateResponse = (incomingChatLI) => {
     sources = result['sources']
     add_message(text,'assistant')
     messageElement.innerHTML = text
-
   })
   .catch((error) => {
     console.log('error',error)
     messageElement.textContent = "Something is wrong. Please try again";
 
   });
-
-  // fetch('http://localhost:8080/api/chat', {
-  //     method: 'POST',
-  //     headers: {
-  //         'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({ content: userMessage }),
-  // })
-  // .then(res => res.json())
-  // .then(data => {
-  //     messageElement.textContent = data.choices[0].message.content;
-  // }).catch((error) => {
-  //     console.log(error);
-  //     messageElement.textContent = "Something is wrong. Please try again";
-  // });
 };
 
 sendChatBtn.addEventListener("click", handleChat);
