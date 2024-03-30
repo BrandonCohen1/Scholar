@@ -1,6 +1,7 @@
 const fileSelectBtn = document.getElementById("file-select-btn");
 const fileInput = document.getElementById("file-input");
-const selectedFiles = document.querySelector(".selected-files");
+const selectedFiles = document.querySelector("selected-files");
+
 
 let filesToUpload = [];
 
@@ -15,6 +16,7 @@ fileInput.addEventListener("change", (e) => {
     alert("You can only upload 5 files at a time.");
     return;
   }
+
   const oversizedFiles = filesToUpload.filter((file) => file.size > 1048576);
   if (oversizedFiles.length > 0) {
     alert(
@@ -26,30 +28,46 @@ fileInput.addEventListener("change", (e) => {
     );
     return;
   }
+
+  const acceptedFileTypes = ['application/pdf'];
+  const unacceptedTypes = filesToUpload.filter(file => !acceptedFileTypes.includes(file.type));
+  if (unacceptedTypes.length > 0) {
+    alert(
+      `We only accpet pdf file. The file(s) ${unacceptedTypes.map((file) => file.name).join(", ")} is/are not pdf.`
+    );
+    return;
+  }
   updateFileList();
 });
 
 function updateFileList() {
-  let existingList = selectedFiles.querySelector("ul");
-  if (existingList) {
-    existingList.remove();
+  const fileListContainer = document.querySelector('.selected-files-container .selected-files'); 
+  if (!fileListContainer) {
+    console.error('Selected files container not found');
+    return;
   }
 
+  fileListContainer.innerHTML = '';
+
   const ul = document.createElement("ul");
-  filesToUpload.forEach((file, index) => {
+  filesToUpload.forEach((file) => {
     const li = document.createElement("li");
     li.classList.add("file-listing");
     li.textContent = `${file.name} - ${file.size} bytes`;
+
     const removeFile = document.createElement("span");
-    (removeFile.textContent = "X"), (removeFile.className = "remove-File");
+    removeFile.textContent = "X";
+    removeFile.className = "remove-File";
     removeFile.style.cursor = "pointer";
-
-    removeFile.addEventListener("click", () => {
-      filesToUpload.splice(index, 1);
-
+    removeFile.addEventListener("click", function() {
+      filesToUpload = filesToUpload.filter(f => f !== file);
       updateFileList();
     });
+
     li.appendChild(removeFile);
     ul.appendChild(li);
-  }, selectedFiles.appendChild(ul));
+  });
+  
+  fileListContainer.appendChild(ul);
 }
+

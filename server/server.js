@@ -28,8 +28,3 @@ app.post('/api/chat', async (req, res) => {
     res.status(500).json({ error: "Failed to fetch response from OpenAI" });
   }
 });
-
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
