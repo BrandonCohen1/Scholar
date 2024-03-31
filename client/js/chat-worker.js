@@ -4,7 +4,7 @@ const chatBox = document.querySelector(".chat-container");
 
 let userMessage;
 
-let arr = [
+let messages = [
   { role: "user", content: "Hi" },
   { role: "assistant", content: "Hi, how are you?" },
 ];
@@ -20,7 +20,7 @@ function zipFile() {
 
 
 function add_message(text, role = "user") {
-  arr.push({ role: role, content: text });
+  messages.push({ role: role, content: text });
 }
 const createChatLi = (message, className) => {
   const chatLi = document.createElement("li");
@@ -63,7 +63,8 @@ const handleChat = () => {
     chatBox.appendChild(createChatLi(userMessage, "user", filesToUpload));
     chatInput.value = "";
     fileInput.value = ""; 
-    filesToUpload = [];
+    console.log('filesToUpload',filesToUpload)
+    filesToUpload.length = 0
   
     updateFileList(); 
     
@@ -78,39 +79,51 @@ const handleChat = () => {
 const generateResponse = (incomingChatLI) => {
   const messageElement = incomingChatLI.querySelector("p");
   const files = fileInput.files;
-
-  if (files.length === 1) {
-    // sendFileToBackend(files[0], messageElement);
-  } else if (files.length > 1) {
-    zipFile().then(zippedBlob => {
-      console.log('Zip process completed, now you can handle the blob.');
-      // sendFilesAndMessage(zippedBlob, messageElement);
-    }).catch(error => {
-      console.error("Error preparing zipped files:", error);
-    });
-  } else {
-  //   sendMessageOnly(messageElement);
-  }
+  console.log("files",files)
+  // if (files.length === 1) {
+  //   // sendFileToBackend(files[0], messageElement);
+  // } else if (files.length > 1) {
+  //   zipFile().then(zippedBlob => {
+  //     console.log('Zip process completed, now you can handle the blob.');
+  //     // sendFilesAndMessage(zippedBlob, messageElement);
+  //   }).catch(error => {
+  //     console.error("Error preparing zipped files:", error);
+  //   });
+  // } else {
+  // //   sendMessageOnly(messageElement);
+  // }
 
   add_message(userMessage);
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
-  const raw = JSON.stringify(arr);
+  const conversation = JSON.stringify(messages);
+
+  const url = "https://fastapi-production-9440.up.railway.app/chat+/";
+
+  const formData = new FormData();
+  formData.append('conversation', conversation);
+
+  if (filesToUpload.length >= 1){
+    formData.append('file',filesToUpload[0])
+  }
+
+
 
   const requestOptions = {
     method: "POST",
-    headers: myHeaders,
-    body: raw,
+    body: formData,
     redirect: "follow",
   };
-  fetch("https://fastapi-production-9440.up.railway.app/chat/", requestOptions)
+
+  fetch(url, requestOptions)
     .then((response) => response.json())
     .then((result) => {
       text = result["result"];
       sources = result["sources"];
       add_message(text, "assistant");
       messageElement.innerHTML = text;
+      console.log('results',result)
     })
     .catch((error) => {
       console.log("error", error);
