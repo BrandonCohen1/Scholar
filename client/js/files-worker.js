@@ -1,4 +1,3 @@
-
 const fileSelectBtn = document.getElementById("file-select-btn");
 const fileInput = document.getElementById("file-input");
 const fileListContainer = document.querySelector('.selected-files-container .selected-files'); 
@@ -69,3 +68,4 @@ function updateFileList() {
   });
   fileListContainer.appendChild(ul);
 }
+

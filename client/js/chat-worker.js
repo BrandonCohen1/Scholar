@@ -3,8 +3,8 @@ const sendChatBtn = document.querySelector(".chat-input span");
 const chatBox = document.querySelector(".chat-container");
 
 let userMessage;
-
-let arr = [
+let pdfsBeingSentOut = []
+let messages = [
   { role: "user", content: "Hi" },
   { role: "assistant", content: "Hi, how are you?" },
 ];
@@ -20,7 +20,7 @@ function zipFile() {
 
 
 function add_message(text, role = "user") {
-  arr.push({ role: role, content: text });
+  messages.push({ role: role, content: text });
 }
 const createChatLi = (message, className) => {
   const chatLi = document.createElement("li");
@@ -63,8 +63,10 @@ const handleChat = () => {
     chatBox.appendChild(createChatLi(userMessage, "user", filesToUpload));
     chatInput.value = "";
     fileInput.value = ""; 
-    filesToUpload = [];
-  
+    console.log('filesToUpload',filesToUpload)
+    pdfsBeingSentOut = [...filesToUpload]
+    filesToUpload.length = 0
+    
     updateFileList(); 
     
     setTimeout(() => {
@@ -78,39 +80,38 @@ const handleChat = () => {
 const generateResponse = (incomingChatLI) => {
   const messageElement = incomingChatLI.querySelector("p");
   const files = fileInput.files;
+  console.log("files",pdfsBeingSentOut)
 
-  if (files.length === 1) {
-    // sendFileToBackend(files[0], messageElement);
-  } else if (files.length > 1) {
-    zipFile().then(zippedBlob => {
-      console.log('Zip process completed, now you can handle the blob.');
-      // sendFilesAndMessage(zippedBlob, messageElement);
-    }).catch(error => {
-      console.error("Error preparing zipped files:", error);
-    });
-  } else {
-  //   sendMessageOnly(messageElement);
-  }
 
   add_message(userMessage);
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
-  const raw = JSON.stringify(arr);
+  const conversation = JSON.stringify(messages);
+
+  const url = "fastapi-production-9440.up.railway.app/chat+/";
+  console.log(url)
+  const formData = new FormData();
+  formData.append('conversation', conversation);
+
+  if (pdfsBeingSentOut.length >= 1){
+    formData.append('file',pdfsBeingSentOut[0])
+  }
 
   const requestOptions = {
     method: "POST",
-    headers: myHeaders,
-    body: raw,
+    body: formData,
     redirect: "follow",
   };
-  fetch("https://fastapi-production-9440.up.railway.app/chat/", requestOptions)
+
+  fetch(url, requestOptions)
     .then((response) => response.json())
     .then((result) => {
       text = result["result"];
       sources = result["sources"];
       add_message(text, "assistant");
       messageElement.innerHTML = text;
+      console.log('results',result)
     })
     .catch((error) => {
       console.log("error", error);
@@ -118,68 +119,6 @@ const generateResponse = (incomingChatLI) => {
     });
 };
 
-// function sendFileToBackend(file, messageElement) {
-//   const formData = new FormData();
-//   formData.append('file', file);
-//   formData.append('messageData', JSON.stringify({ userMessage }));
-
-//   // Adjust this URL to your actual backend endpoint
-//   fetch("https://fastapi-production-9440.up.railway.app/chat/file", {
-//     method: "POST",
-//     body: formData,
-//   })
-//   .then(handleBackendResponse.bind(null, messageElement))
-//   .catch(handleBackendError.bind(null, messageElement));
-//   console.log("got to sendFileToBackend");
-// }
-
-// function sendFilesAndMessage(zippedBlob, messageElement) {
-//   const formData = new FormData();
-//   formData.append('zippedFiles', zippedBlob, 'zippedFiles.zip');
-//   formData.append('messageData', JSON.stringify({ userMessage }));
-
-//   // Adjust this URL to your actual backend endpoint
-//   fetch("https://fastapi-production-9440.up.railway.app/chat/files", {
-//     method: "POST",
-//     body: formData,
-//   })
-//   .then(handleBackendResponse.bind(null, messageElement))
-//   .catch(handleBackendError.bind(null, messageElement));
-//   console.log("got to sendFilesandMessage");
-// }
-
-// function sendMessageOnly(messageElement) {
-//   // Here you would send just the chat message, similar to sending files but without FormData
-//   // Reusing requestOptions from your existing code for consistency
-//   const requestOptions = {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({ userMessage }),
-//     redirect: "follow",
-//   };
-
-//   fetch("https://fastapi-production-9440.up.railway.app/chat/message", requestOptions)
-//     .then(handleBackendResponse.bind(null, messageElement))
-//     .catch(handleBackendError.bind(null, messageElement));
-// }
-
-// function handleBackendResponse(messageElement, response) {
-//   if (!response.ok) {
-//     throw new Error('Network response was not ok');
-//   }
-//   return response.json().then(result => {
-//     text = result["result"];
-//     sources = result["sources"];
-//     add_message(text, "assistant");
-//     messageElement.innerHTML = text;
-//     console.log("got to handleBackendResponse");
-//   });
-// }
-
-// function handleBackendError(messageElement, error) {
-//   console.error('Error:', error);
-//   messageElement.textContent = "Something is wrong. Please try again";
-// }
 
 
 sendChatBtn.addEventListener("click", handleChat);
