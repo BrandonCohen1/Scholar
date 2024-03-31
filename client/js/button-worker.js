@@ -53,7 +53,7 @@ function updateFileList() {
   filesToUpload.forEach((file) => {
     const li = document.createElement("li");
     li.classList.add("file-listing");
-    li.textContent = `${file.name} - ${file.size} bytes`;
+    li.textContent = `${file.name}`;
 
     const removeFile = document.createElement("span");
     removeFile.textContent = "X";
