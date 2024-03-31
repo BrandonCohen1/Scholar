@@ -49,20 +49,20 @@ const createChatLi = (message, className) => {
 
 const handleChat = () => {
   userMessage = chatInput.value.trim();
-  chatBox.appendChild(createChatLi(userMessage, "user", fileInput.files));
-  chatInput.value = "";
-  fileInput.value = "";
-
-  const fileListContainer = document.querySelector('.chat-input ul');
-  if (fileListContainer) {
-    fileListContainer.innerHTML = ''; 
+  if (userMessage || filesToUpload.length > 0) {
+    chatBox.appendChild(createChatLi(userMessage, "user", filesToUpload));
+    chatInput.value = "";
+    fileInput.value = ""; 
+    filesToUpload = [];
+  
+    updateFileList(); 
+    
+    setTimeout(() => {
+      const incomingChatLi = createChatLi("Generating output...", "bot");
+      chatBox.appendChild(incomingChatLi);
+      generateResponse(incomingChatLi);
+    }, 500);
   }
-
-  setTimeout(() => {
-    const incomingChatLI = createChatLi("Generating output...", "bot");
-    chatBox.appendChild(incomingChatLI);
-    generateResponse(incomingChatLI);
-  }, 500);
 };
 
 const generateResponse = (incomingChatLI) => {
