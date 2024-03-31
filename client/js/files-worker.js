@@ -2,7 +2,7 @@ const fileSelectBtn = document.getElementById("file-select-btn");
 const fileInput = document.getElementById("file-input");
 const fileListContainer = document.querySelector('.selected-files-container .selected-files'); 
 
-const filesToUpload = [];
+let filesToUpload = [];
 
 
 fileSelectBtn.addEventListener("click", () => {

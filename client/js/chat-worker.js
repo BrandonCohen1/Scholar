@@ -3,7 +3,7 @@ const sendChatBtn = document.querySelector(".chat-input span");
 const chatBox = document.querySelector(".chat-container");
 
 let userMessage;
-
+let tempArr = []
 let messages = [
   { role: "user", content: "Hi" },
   { role: "assistant", content: "Hi, how are you?" },
@@ -64,8 +64,9 @@ const handleChat = () => {
     chatInput.value = "";
     fileInput.value = ""; 
     console.log('filesToUpload',filesToUpload)
+    tempArr = [...filesToUpload]
     filesToUpload.length = 0
-  
+    
     updateFileList(); 
     
     setTimeout(() => {
@@ -79,7 +80,7 @@ const handleChat = () => {
 const generateResponse = (incomingChatLI) => {
   const messageElement = incomingChatLI.querySelector("p");
   const files = fileInput.files;
-  console.log("files",files)
+  console.log("files",tempArr)
   // if (files.length === 1) {
   //   // sendFileToBackend(files[0], messageElement);
   // } else if (files.length > 1) {
@@ -104,8 +105,8 @@ const generateResponse = (incomingChatLI) => {
   const formData = new FormData();
   formData.append('conversation', conversation);
 
-  if (filesToUpload.length >= 1){
-    formData.append('file',filesToUpload[0])
+  if (tempArr.length >= 1){
+    formData.append('file',tempArr[0])
   }
 
 
