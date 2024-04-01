@@ -89,7 +89,7 @@ const generateResponse = (incomingChatLI) => {
   myHeaders.append("Content-Type", "application/json");
   const conversation = JSON.stringify(messages);
 
-  const url = "fastapi-production-9440.up.railway.app/chat+/";
+  const url = "https://fastapi-production-9440.up.railway.app/chat+/";
   console.log(url)
   const formData = new FormData();
   formData.append('conversation', conversation);
