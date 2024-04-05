@@ -15,33 +15,29 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-header .header {
+header .header{
   background-color: rgb(53, 68, 52);
   color: rgb(216, 201, 201);
   margin: 0;
-  padding: 10px;
+  padding: 10px 0 8px 0;
   text-align: center;
   height: 30px;
   flex-shrink: 0;
 }
-.toggle-options {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
+
+#internet-icon {
+  position: absolute; 
+  right: 10px; 
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px 8px 0;
 }
-.toggle-btn {
-  padding: 5px 15px;
-  border: 1px solid #ddd;
-  background-color: #fff;
-  cursor: pointer;
-  outline: none;
-  border-radius: 20px;
+
+#internet-icon .fa-solid {
+  font-size: 20px;
+  color: white;
 }
-.toggle-btn.active {
-  background-color: #ddd;
-  border-radius: 20px;
-}
+
 .chat-container {
   flex-grow: 1;
   overflow-y: auto;

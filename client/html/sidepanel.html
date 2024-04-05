@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/client/css/style.css">
   <script src="/client/js/files-worker.js" defer></script>
   <script src="/client/js/chat-worker.js" defer></script>
+  <script src="/client/js/toggle-icon.js" defer></script>
   <script src="/path/to/toggle-feature.js" defer></script>
   <title>Chat Page</title>
 </head>
@@ -20,16 +21,16 @@
 
   <div class="app-container">
 
-    <header class="header">
+    <header>
       <h2 class="header">
         SCHOLARLY
+        <button id="internet-icon">
+          <i class="fa-solid fa-link icon"></i> 
+          <i class="fa-solid fa-link-slash icon" style="display: none;"></i> 
+        </button>
       </h2>
     </header>
 
-    <div class="toggle-options">
-      <button id="toggle-file-selection" class="toggle-btn active">File Selection</button>
-      <button id="toggle-internet-search" class="toggle-btn">Internet Search</button>
-    </div>
 
     <ul class="chat-container">
 
@@ -53,6 +54,7 @@
       <span id="send-button" class="send-button"><i class="fa-regular fa-paper-plane"></i></span>
     </div>
   </div>
+  
 </body>
 
 </html>

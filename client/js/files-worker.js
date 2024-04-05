@@ -48,7 +48,7 @@ function updateFileList() {
   }
 
   fileListContainer.innerHTML = '';
-
+  
   const ul = document.createElement("ul");
   filesToUpload.forEach((file) => {
     const li = document.createElement("li");
