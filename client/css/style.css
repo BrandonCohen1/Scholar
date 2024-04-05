@@ -15,15 +15,29 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-header .header {
+header .header{
   background-color: rgb(53, 68, 52);
   color: rgb(216, 201, 201);
-  padding: 10px;
   margin: 0;
+  padding: 10px 0 8px 0;
   text-align: center;
   height: 30px;
   flex-shrink: 0;
 }
+
+#internet-icon {
+  position: absolute; 
+  right: 10px; 
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px 8px 0;
+}
+
+#internet-icon .fa-solid {
+  font-size: 20px;
+  color: white;
+}
+
 .chat-container {
   flex-grow: 1;
   overflow-y: auto;
@@ -72,6 +86,15 @@ header .header {
 ul {
   list-style-type: none;
 }
+#file-select-btn{
+  background-color: transparent;
+  border: none; 
+}
+#file-select-btn .fa-solid.fa-paperclip {
+  color: white;
+  font-size: 20px;
+  padding: 0 0 0 5px;
+}
 
 .file-info {
   color: rgb(72, 70, 70);
@@ -80,9 +103,8 @@ ul {
   border-radius: 10px;
   margin: 5px 10px 0px 50px;
   display: inline-flex;
-  justify-content: flex-end; /* Aligns the child elements to the right */
+  justify-content: flex-end; 
 }
-
 .chat-input {
   margin: 5px 10px 20px 10px;
   display: flex;
@@ -94,7 +116,7 @@ ul {
   wrap: wrap;
 }
 .chat-input textarea {
-  height: 15;
+  height: 20px;
   font-size: 15px;
   font-family: Ubuntu;
   width: 100%;
@@ -105,23 +127,18 @@ ul {
   outline: none; /* Removes focus outline */
 }
 .chat-input button {
-  border-radius: 15px;
   border: none;
-  padding: 8px;
+  padding: 5px 0 0 0;
   color: white;
   background-color: #777474;
   cursor: pointer;
 }
 .chat-input span {
-  border-radius: 15px;
   border: none;
-  padding: 8px;
   color: white;
-  background-color: #777474;
   cursor: pointer;
-}
-.chat-input span:hover {
-  background-color: rgb(68, 124, 75);
+  padding: 0 5px 0 0;
+  font-size: 20px;
 }
 #send-button {
   margin: 5px;
@@ -131,8 +148,8 @@ ul {
   background-color: rgb(68, 124, 75);
 }
 .drag-over {
-  border-color: #68a047; /* Change border color to indicate drag over */
-  background-color: #f4f6f7; /* Optional: change background color */
+  border-color: #68a047; 
+  background-color: #f4f6f7;
 }
 #file-input {
   display: none;
@@ -140,17 +157,63 @@ ul {
 .selected-files-container {
   border-radius: 15px;
   border: 1px solid rgb(141, 137, 137);
-  padding: 10px;
-  margin: 10px 10px 0 10px;
-  display: block;
+  padding: 8px 10px 12px 0;
+  padding-left: 0;
+  margin: 10px 10px 0 0;
   color: white;
+  display: none; 
+  background-color: #2a2a2a;
+}
+.selected-files-container ul {
+  list-style: none; /* Removes default list bullets */
+  padding-left: 0; /* Resets default padding */
+  margin-left: 0; /* Resets default margin */
+}
+.selected-files-container li {
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
 }
 .file-listing {
   display: flex;
+  align-items: flex-start; 
   justify-content: space-between;
-  align-items: center; 
+  margin-bottom: 5px;
+  padding: 0;
+  border-radius: 15px;
+  width: 100%;
+  background-color: rgb(90, 103, 80); 
 }
-.remove-File {
+.file-info {
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+}
+
+.fa-regular, .fa-file-pdf { 
   color: white;
-  cursor: pointer; /* Suggests it's clickable */
+  font-size: 25px;
+  margin-right: 10px; 
+  padding-left: 0;
 }
+
+.file-listing span {
+  color: white;
+  justify-content: start;
+}
+
+.remove-file {
+  margin-left: auto; /* Pushes the remove button to the far right */
+  color: white;
+  cursor: pointer;
+  background-color: grey;
+  border-radius: 20px;
+  padding: 0 5px 0 5px;
+}
+
+.safe-content p, .safe-content ul, .safe-content ol, .safe-content li {
+  padding: 0;
+  margin: 0;
+}
+
+/*  Dropdown bottom / aligns to end */
