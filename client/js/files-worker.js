@@ -1,6 +1,6 @@
 const fileSelectBtn = document.getElementById("file-select-btn");
 const fileInput = document.getElementById("file-input");
-const fileListContainer = document.querySelector('.selected-files-container'); 
+const fileListContainer = document.querySelector('.selected-files-container');
 
 let filesToUpload = [];
 
@@ -48,9 +48,9 @@ function updateFileList() {
   }
 
   if (filesToUpload.length > 0) {
-    fileListContainer.style.display = 'block'; 
+    fileListContainer.style.display = 'block';
   } else {
-    fileListContainer.style.display = 'none'; 
+    fileListContainer.style.display = 'none';
     return;
   }
 
@@ -60,16 +60,32 @@ function updateFileList() {
   filesToUpload.forEach((file) => {
     const li = document.createElement("li");
     li.classList.add("file-listing");
-    li.textContent = `${file.name}`;
-
+  
+    // Create a div to group icon and file name together
+    const fileInfoDiv = document.createElement("div");
+    fileInfoDiv.classList.add("file-info");
+  
+    const fileIcon = document.createElement("i");
+    fileIcon.classList.add("fa-regular", "fa-file-pdf");
+    fileInfoDiv.appendChild(fileIcon);
+  
+    const fileNameSpan = document.createElement("span");
+    fileNameSpan.textContent = ` ${file.name}`;
+    fileInfoDiv.appendChild(fileNameSpan);
+  
+    // Append the fileInfoDiv to li
+    li.appendChild(fileInfoDiv);
+  
+    // Create and append the remove button
     const removeFile = document.createElement("span");
-    removeFile.textContent = "X";
-    removeFile.className = "remove-File";
+    removeFile.textContent = "x";
+    removeFile.className = "remove-file";
     removeFile.style.cursor = "pointer";
     removeFile.addEventListener("click", function() {
       filesToUpload = filesToUpload.filter(f => f !== file);
       updateFileList();
     });
+  
     li.appendChild(removeFile);
     ul.appendChild(li);
   });
