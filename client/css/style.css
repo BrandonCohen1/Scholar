@@ -217,3 +217,8 @@ ul {
 }
 
 /*  Dropdown bottom / aligns to end */
+
+#logo{
+  width: 50px;
+  transform: scaleX(-1);
+}

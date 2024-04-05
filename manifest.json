@@ -8,6 +8,11 @@
   "background": {
     "service_worker": "service-worker.js"
   },
+
+"icons": {
+  "50":"/client/images/50Logo.png"
+},
+
   "permissions": [
     "sidePanel",
     "contextMenus",

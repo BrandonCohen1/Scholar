@@ -44,12 +44,12 @@ const createChatLi = (message, className) => {
     chatContent =
       className === "user"
         ? `${fileListHTML}<p> ${message}</p>`
-        : `<span>SC</span><p>${message}</p>`;
+        : `<span><img src="../images/50Logo.png" id="logo"></span><p>${message}</p>`;
   } else {
     chatContent =
       className === "user"
         ? `<p>${message}</p>`
-        : `<span>SC</span><p>${message}</p>`;
+        : `<span><img src="../images/50Logo.png" id="logo"></span><p>${message}</p>`;
   }
 
   chatLi.innerHTML = chatContent;
