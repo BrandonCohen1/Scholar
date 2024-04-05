@@ -1,6 +1,6 @@
 const fileSelectBtn = document.getElementById("file-select-btn");
 const fileInput = document.getElementById("file-input");
-const fileListContainer = document.querySelector('.selected-files-container .selected-files'); 
+const fileListContainer = document.querySelector('.selected-files-container'); 
 
 let filesToUpload = [];
 
@@ -47,8 +47,15 @@ function updateFileList() {
     return;
   }
 
+  if (filesToUpload.length > 0) {
+    fileListContainer.style.display = 'block'; 
+  } else {
+    fileListContainer.style.display = 'none'; 
+    return;
+  }
+
   fileListContainer.innerHTML = '';
-  
+
   const ul = document.createElement("ul");
   filesToUpload.forEach((file) => {
     const li = document.createElement("li");
