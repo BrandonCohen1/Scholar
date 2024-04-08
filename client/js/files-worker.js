@@ -59,22 +59,16 @@ function updateFileList() {
   const ul = document.createElement("ul");
   filesToUpload.forEach((file) => {
     const li = document.createElement("li");
+    const blobUrl = URL.createObjectURL(file);
     li.classList.add("file-listing");
   
-    // Create a div to group icon and file name together
-    const fileInfoDiv = document.createElement("div");
-    fileInfoDiv.classList.add("file-info");
-  
-    const fileIcon = document.createElement("i");
-    fileIcon.classList.add("fa-regular", "fa-file-pdf");
-    fileInfoDiv.appendChild(fileIcon);
-  
-    const fileNameSpan = document.createElement("span");
-    fileNameSpan.textContent = ` ${file.name}`;
-    fileInfoDiv.appendChild(fileNameSpan);
+    const fileNameLink = document.createElement("a");
+    fileNameLink.textContent = ` ${file.name}`;
+    fileNameLink.href = blobUrl;
+    fileNameLink.target = "_blank"
   
     // Append the fileInfoDiv to li
-    li.appendChild(fileInfoDiv);
+    li.appendChild(fileNameLink);
   
     // Create and append the remove button
     const removeFile = document.createElement("span");
@@ -91,4 +85,3 @@ function updateFileList() {
   });
   fileListContainer.appendChild(ul);
 }
-

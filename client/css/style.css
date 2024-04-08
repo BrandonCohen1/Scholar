@@ -160,7 +160,7 @@ ul {
   border: 1px solid rgb(141, 137, 137);
   padding: 8px 10px 12px 0;
   padding-left: 0;
-  margin: 10px 10px 0 0;
+  margin: 10px 10px 0 10px;
   color: white;
   display: none; 
   background-color: #2a2a2a;
@@ -168,12 +168,11 @@ ul {
 .selected-files-container ul {
   list-style: none; /* Removes default list bullets */
   padding-left: 0; /* Resets default padding */
-  margin-left: 0; /* Resets default margin */
 }
 .selected-files-container li {
   list-style: none;
-  padding: 0;
-  margin-left: 0;
+  padding: 10px;
+  margin: 10px;
 }
 .file-listing {
   display: flex;
@@ -182,7 +181,6 @@ ul {
   margin-bottom: 5px;
   padding: 0;
   border-radius: 15px;
-  width: 100%;
   background-color: rgb(90, 103, 80); 
 }
 .file-info {
