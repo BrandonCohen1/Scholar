@@ -63,14 +63,13 @@ header .header{
 .bot p {
   background-color: rgb(65, 62, 62);
   color: rgb(95, 183, 107);
-  padding: 10px;
+  
   margin-right: 50px;
   border-radius: 10px;
 }
 .user {
   display: flex;
   flex-direction: column;
-  text-align: right;
 }
 .user p{
   color: black;
@@ -78,10 +77,12 @@ header .header{
   gap: 2px;
   padding: 5px 5px;
   border-radius: 10px;
-  margin: 5px 10px 0px 50px;
+  margin: 5px 10px 0px 260px;
   display: flex;
   display: inline-flex;
-  text-align: right;
+  overflow-wrap: break-word;  
+  word-wrap: break-word; 
+  word-break: break-word;
 }
 ul {
   list-style-type: none;
