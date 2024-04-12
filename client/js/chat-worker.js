@@ -48,8 +48,8 @@ const createChatLi = (message, className) => {
   } else {
     chatContent =
       className === "user"
-        ? `<p style='padding:15px 0px 15px 1px'>${message}</p>`
-        : `<span><img src="../images/50Logo.png" id="logo"></span><p style='padding:1px'>${message}</p>`;
+        ? `<p style='padding:15px 0px 15px 10px'>${message}</p>`
+        : `<span><img src="../images/50Logo.png" id="logo"></span><p style='padding:5px 5px 5px 10px'>${message}</p>`;
   }
 
   chatLi.innerHTML = chatContent;
