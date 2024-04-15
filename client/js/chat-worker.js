@@ -79,24 +79,18 @@ const handleChat = () => {
 
 const generateResponse = (incomingChatLI) => {
   const messageElement = incomingChatLI.querySelector("p");
-  const files = fileInput.files;
-  console.log("files",pdfsBeingSentOut)
-
 
   add_message(userMessage);
 
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  const conversation = JSON.stringify(messages);
-
   const url = "https://fastapi-production-9440.up.railway.app/chat+/";
-  console.log(url)
   const formData = new FormData();
+  const conversation = JSON.stringify(messages);
+  
   formData.append('conversation', conversation);
 
-  if (pdfsBeingSentOut.length >= 1){
-    formData.append('file',pdfsBeingSentOut[0])
-  }
+  pdfsBeingSentOut.forEach((file) => {
+    formData.append('files', file); 
+  });
 
   const requestOptions = {
     method: "POST",
@@ -107,15 +101,18 @@ const generateResponse = (incomingChatLI) => {
   fetch(url, requestOptions)
     .then((response) => response.json())
     .then((result) => {
-      text = result["result"];
-      sources = result["sources"];
+      console.log("result", result);
+      const text = result["result"];
+      const sources = result["source_sheet"];
+    
       add_message(text, "assistant");
       messageElement.innerHTML = text;
-      console.log('results',result)
+    
+      console.log('results', result);
     })
     .catch((error) => {
-      console.log("error", error);
-      messageElement.textContent = "Something is wrong. Please try again";
+      console.error("error", error);
+      messageElement.textContent = "Something is wrong. Please try again.";
     });
 };
 
