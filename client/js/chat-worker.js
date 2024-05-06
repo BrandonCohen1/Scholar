@@ -10,15 +10,6 @@ let messages = [
 ];
 
 
-function zipFile() {
-  const zip = new JSZip();
-  for (const file of fileInput.files) {
-    zip.file(file.name, file);
-  }
-  return zip.generateAsync({type: "blob"});
-}
-
-
 function add_message(text, role = "user") {
   messages.push({ role: role, content: text });
 }
@@ -30,9 +21,9 @@ const createChatLi = (message, className) => {
   let chatContent;
 
   if (fileInput.files.length > 0 && className === "user") {
-    const fileList = document.createElement("ul");
+    const fileList = document.createElement("div");
     Array.from(fileInput.files).forEach((file) => {
-      const fileItem = document.createElement("li");
+      const fileItem = document.createElement("div");
       fileItem.textContent = file.name;
       fileList.appendChild(fileItem);
     });
@@ -43,13 +34,15 @@ const createChatLi = (message, className) => {
 
     chatContent =
       className === "user"
-        ? `${fileListHTML}<p> ${message}</p>`
-        : `<span><img src="../images/50Logo.png" id="logo"></span><p>${message}</p>`;
+        ? `<span>YOU</span><div>${fileListHTML}<p style="display-block">${message}</p>`
+        : `<span><img src="../images/50Logo.png" style="vertical-align: top"></span>
+          <p>${message}</p>`;
   } else {
     chatContent =
       className === "user"
-        ? `<p style='padding:15px 0px 15px 10px'>${message}</p>`
-        : `<span><img src="../images/50Logo.png" id="logo"></span><p style='padding:5px 5px 5px 10px'>${message}</p>`;
+        ? `<span>YOU</span><p>${message}</p>`
+        : `<span><img src="../images/50Logo.png" style="vertical-align: top"></span><p style='padding:1px'>${message}</p>`;
+
   }
 
   chatLi.innerHTML = chatContent;
@@ -62,13 +55,13 @@ const handleChat = () => {
   if (userMessage || filesToUpload.length > 0) {
     chatBox.appendChild(createChatLi(userMessage, "user", filesToUpload));
     chatInput.value = "";
-    fileInput.value = ""; 
-    console.log('filesToUpload',filesToUpload)
+    fileInput.value = "";
+    console.log('filesToUpload', filesToUpload)
     pdfsBeingSentOut = [...filesToUpload]
     filesToUpload.length = 0
-    
-    updateFileList(); 
-    
+
+    updateFileList();
+
     setTimeout(() => {
       const incomingChatLi = createChatLi("Generating output...", "bot");
       chatBox.appendChild(incomingChatLi);
@@ -85,11 +78,11 @@ const generateResponse = (incomingChatLI) => {
   const url = "https://fastapi-production-9440.up.railway.app/chat+/";
   const formData = new FormData();
   const conversation = JSON.stringify(messages);
-  
+
   formData.append('conversation', conversation);
 
   pdfsBeingSentOut.forEach((file) => {
-    formData.append('files', file); 
+    formData.append('files', file);
   });
 
   const requestOptions = {
@@ -104,10 +97,10 @@ const generateResponse = (incomingChatLI) => {
       console.log("result", result);
       const text = result["result"];
       const sources = result["source_sheet"];
-    
+
       add_message(text, "assistant");
       messageElement.innerHTML = text;
-    
+
       console.log('results', result);
     })
     .catch((error) => {
