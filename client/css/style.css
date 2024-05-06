@@ -38,6 +38,42 @@ header .header{
   color: white;
 }
 
+#advanced-input {
+  -webkit-appearance: none;
+  position: absolute; 
+  right: 75px; 
+  top: 15px;
+  background-color: #757575;
+  border-radius: 25px;
+  padding: 5px 10px 8px 0;
+  width: 30px;
+  height: 15px;
+  transition: background .3s;
+  outline: none;
+  cursor: pointer;
+}
+
+#advanced-input::after {
+  content: '';
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  transform: translate (-50%,-50%);
+  border-radius: 50%;
+  height: .85rem;
+  width: .85rem;
+  background-color: white;
+  transition: left .3s;
+}
+
+#advanced-input:checked{
+  background-color: #68a047;
+}
+
+#advanced-input:checked::after{
+  left: 45%;
+}
+
 .chat-container {
   flex-grow: 1;
   overflow-y: auto;
@@ -221,3 +257,5 @@ ul {
   width: 50px;
   transform: scaleX(-1);
 }
+
+
