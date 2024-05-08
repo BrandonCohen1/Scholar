@@ -38,42 +38,6 @@ header .header{
   color: white;
 }
 
-#advanced-input {
-  -webkit-appearance: none;
-  position: absolute; 
-  right: 75px; 
-  top: 15px;
-  background-color: #757575;
-  border-radius: 25px;
-  padding: 5px 10px 8px 0;
-  width: 30px;
-  height: 15px;
-  transition: background .3s;
-  outline: none;
-  cursor: pointer;
-}
-
-#advanced-input::after {
-  content: '';
-  position: absolute;
-  top: 5%;
-  left: 5%;
-  transform: translate (-50%,-50%);
-  border-radius: 50%;
-  height: .85rem;
-  width: .85rem;
-  background-color: white;
-  transition: left .3s;
-}
-
-#advanced-input:checked{
-  background-color: #68a047;
-}
-
-#advanced-input:checked::after{
-  left: 45%;
-}
-
 .chat-container {
   flex-grow: 1;
   overflow-y: auto;
@@ -258,4 +222,104 @@ ul {
   transform: scaleX(-1);
 }
 
+#advanced-button{
+  position: absolute; 
+  right: 75px; 
+  border-radius: 25px;
+  cursor: pointer;
+}
 
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 10;
+  background-color:rgb(197, 197, 197);
+  width: 500px;
+  max-width: 80%;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 10px 15px;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+} 
+
+.adv-search{
+  color: black;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.adv-input{
+  padding: 10px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-submit{
+  
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 12px 24px;
+  border: 0;
+  color: #3a4149;
+  background: #e7ebee;
+  line-height: 1.15;
+  font-size: 16px;
+}
+
+.form-submit:hover {
+  transition: all .1s ease;
+  box-shadow: 0 0 0 0 #fff, 0 0 0 3px #0c5e31;
+}

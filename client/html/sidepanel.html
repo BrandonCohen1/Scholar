@@ -14,6 +14,7 @@
   <script src="/client/js/chat-worker.js" defer></script>
   <script src="/client/js/toggle-icon.js" defer></script>
   <script src="/path/to/toggle-feature.js" defer></script>
+  <script src="/client/html/advanced-toggle.js" defer></script>
   <title>Chat Page</title>
 </head>
 
@@ -24,7 +25,32 @@
     <header>
       <h2 class="header">
         SCHOLARLY
-        <input type="checkbox" id="advanced-input" ></input>
+
+        <img id="advanced-button" data-modal-target="#modal" src="../images/cog.png" width="30px">
+        <div class="modal" id="modal">
+          <div class="modal-header">
+            <div class="adv-search">Advanced Search</div>
+            <button data-close-button class="close-button">&times;</button>
+          </div>
+          <div class="modal-body">
+           
+            <form method="get" id="search" >
+              <label  for="Search" class="adv-search">Search:</label>
+              <input class= "adv-input" type="text" placeholder="Query..."><br><br>
+        
+              <label for="api" class="adv-search">Api Key:</label>
+              <input class= "adv-input" type="text" placeholder="Your Key..."><br><br>
+        
+              <label for="Number of Papers" class="adv-search">Number of Papers:</label>
+              <input class= "adv-input" type="number" min="1" max="100" placeholder="100 Max"><br><br>
+              
+              <button class="form-submit" type="submit" form="search" value="Submit">Submit</button>
+          </form>
+
+          </div>
+        </div>
+        <div id="overlay"></div>
+
         <button id="internet-icon">
           <i class="fa-solid fa-link icon"></i> 
           <i class="fa-solid fa-link-slash icon" style="display: none;"></i> 
@@ -42,6 +68,8 @@
     <div class="selected-files-container">
       <span class="selected-files"></span>
     </div>
+
+    
 
     <div class="chat-input">
       <div class="file-attach">
