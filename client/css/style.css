@@ -4,7 +4,7 @@ body {
   font-family: "Ubuntu";
   margin: 0;
   padding: 0;
-  background-color: rgb(40, 37, 37);
+  background-color: rgb(243, 236, 224);
   height: 100%;
   font-size: 16px;
 }
@@ -16,8 +16,8 @@ body {
   overflow: hidden;
 }
 header .header{
-  background-color: rgb(53, 68, 52);
-  color: rgb(216, 201, 201);
+  background-color: rgb(236, 168, 109);
+  color: rgb(29, 48, 123);
   margin: 0;
   padding: 10px 0 8px 0;
   text-align: center;
@@ -38,6 +38,42 @@ header .header{
   color: white;
 }
 
+#advanced-input {
+  -webkit-appearance: none;
+  position: absolute; 
+  left: 25px; 
+  top: 15px;
+  background-color: #757575;
+  border-radius: 25px;
+  padding: 5px 10px 8px 0;
+  width: 30px;
+  height: 15px;
+  transition: background .3s;
+  outline: none;
+  cursor: pointer;
+}
+
+#advanced-input::after {
+  content: '';
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  transform: translate (-50%,-50%);
+  border-radius: 50%;
+  height: .85rem;
+  width: .85rem;
+  background-color: white;
+  transition: left .3s;
+}
+
+#advanced-input:checked{
+  background-color: #68a047;
+}
+
+#advanced-input:checked::after{
+  left: 45%;
+}
+
 .chat-container {
   flex-grow: 1;
   overflow-y: auto;
@@ -52,64 +88,93 @@ header .header{
 .bot {
   margin: 0;
   display: flex;
-  align-items: center;
+  align-items: top;
   gap: 5px;
+  margin-bottom: 12px;
 }
 .bot span {
   color: rgb(95, 183, 107);
   border-radius: 25px;
-  padding: 5px;
 }
 .bot p {
-  background-color: rgb(65, 62, 62);
-  color: rgb(95, 183, 107);
-  
-  margin-right: 50px;
+  color: rgb(29, 48, 123);
+  margin-right: 20px;
   border-radius: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 15px;
+  align-items: top;
 }
 .user {
-  display: flex;
-  flex-direction: column;
+  display: flex; 
+  align-items: flex-start; 
+  margin-bottom: 12px;
 }
-.user p{
-  color: black;
-  background-color: rgb(68, 124, 75);
-  gap: 2px;
-  padding: 5px 5px;
-  border-radius: 10px;
-  margin: 5px 10px 0px 260px;
-  display: flex;
-  display: inline-flex;
+
+.user span {
+  border: 1px solid rgb(236, 168, 109);
+  padding: 10px 5px;
+  border-radius: 50%;
+  display: inline-block; 
+  line-height: 1;
+  font-size: 10px;
+  flex-shrink: 0; 
+  margin: 5px 10px 5px 6px;
+}
+
+.user p {
+  color: rgb(236, 168, 109);
+  margin: 12px 20px 5px 5px; 
   overflow-wrap: break-word;  
   word-wrap: break-word; 
   word-break: break-word;
+  flex-grow: 1; 
 }
-ul {
-  list-style-type: none;
+
+.user div {
+  display: flex;
+  flex-direction: column;
 }
+
+.chat-container ul {
+  list-style: none;  
+  padding: -10px; 
+  margin: -10px; 
+}
+
+.chat-container li {
+  margin-bottom: 2px; 
+  padding: 0px;
+}
+
 #file-select-btn{
   background-color: transparent;
   border: none; 
 }
 #file-select-btn .fa-solid.fa-paperclip {
-  color: white;
+  color: rgb(29, 48, 123);
   font-size: 20px;
   padding: 0 0 0 5px;
 }
 
 .file-info {
-  color: rgb(72, 70, 70);
-  gap: 2px;
-  padding: 5px 5px;
-  border-radius: 10px;
-  margin: 5px 10px 0px 50px;
-  display: inline-flex;
-  justify-content: flex-end; 
+  margin-top: 8px;
+  width: fit-content;
+  border-radius: 8px;
 }
+
+.file-info div {
+  margin-top: 2px;
+  padding: 0 4px 2px 4px; 
+  font-size: 12px; 
+  background-color: rgb(221, 177, 144);
+  color: antiquewhite;
+}
+
 .chat-input {
   margin: 5px 10px 20px 10px;
   display: flex;
-  border: 2px solid rgb(68, 124, 75);
+  border: 2px solid rgb(29, 48, 123);
   background-color: transparent;
   border-radius: 23px;
   padding: 10px 7px;
@@ -124,55 +189,32 @@ ul {
   border: none;
   padding: 5px;
   background-color: transparent;
-  color: rgb(209, 216, 210);
+  color: chocolate;
   outline: none; /* Removes focus outline */
-}
-.chat-input button {
-  border: none;
-  padding: 5px 0 0 0;
-  color: white;
-  background-color: #777474;
-  cursor: pointer;
 }
 .chat-input span {
   border: none;
-  color: white;
+  color: rgb(29, 48, 123);
   cursor: pointer;
   padding: 0 5px 0 0;
   font-size: 20px;
-}
-#send-button {
-  margin: 5px;
-  border-radius: 23px;
-}
-.chat-input button:hover {
-  background-color: rgb(68, 124, 75);
-}
-.drag-over {
-  border-color: #68a047; 
-  background-color: #f4f6f7;
 }
 #file-input {
   display: none;
 }
 .selected-files-container {
   border-radius: 15px;
-  border: 1px solid rgb(141, 137, 137);
-  padding: 8px 10px 12px 0;
-  padding-left: 0;
-  margin: 10px 10px 0 10px;
   color: white;
   display: none; 
-  background-color: #2a2a2a;
 }
 .selected-files-container ul {
-  list-style: none; /* Removes default list bullets */
-  padding-left: 0; /* Resets default padding */
+  list-style: none; 
+  padding: 0;
 }
 .selected-files-container li {
   list-style: none;
-  padding: 10px;
-  margin: 10px;
+  padding: 5px 10px 5px 10px;
+  margin: 5px 10px 5px  10px;
 }
 .file-listing {
   display: flex;
@@ -181,7 +223,7 @@ ul {
   margin-bottom: 5px;
   padding: 0;
   border-radius: 15px;
-  background-color: rgb(90, 103, 80); 
+  background-color: rgb(239, 230, 212); 
 }
 .file-info {
   display: flex;
@@ -202,10 +244,10 @@ ul {
 }
 
 .remove-file {
-  margin-left: auto; /* Pushes the remove button to the far right */
+  margin-left: auto;
   color: white;
   cursor: pointer;
-  background-color: grey;
+  background-color: rgb(29, 48, 123);
   border-radius: 20px;
   padding: 0 5px 0 5px;
 }
@@ -323,3 +365,4 @@ ul {
   transition: all .1s ease;
   box-shadow: 0 0 0 0 #fff, 0 0 0 3px #0c5e31;
 }
+/*  Dropdown bottom / aligns to end */
