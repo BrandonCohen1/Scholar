@@ -280,7 +280,7 @@ header .header{
   border: 1px solid black;
   border-radius: 10px;
   z-index: 10;
-  background-color:rgb(197, 197, 197);
+  background-color:rgb(152, 186, 209);
   width: 500px;
   max-width: 80%;
 }
@@ -333,7 +333,7 @@ header .header{
 } 
 
 .adv-search{
-  color: black;
+  color: rgb(138, 92, 40);
   font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
@@ -344,6 +344,8 @@ header .header{
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
+  text-align: left;
+  padding-left: 15px;
 }
 
 .form-submit{
@@ -363,6 +365,6 @@ header .header{
 
 .form-submit:hover {
   transition: all .1s ease;
-  box-shadow: 0 0 0 0 #fff, 0 0 0 3px #0c5e31;
+  box-shadow: 0 0 0 0 #fff, 0 0 0 3px #510485;
 }
 /*  Dropdown bottom / aligns to end */

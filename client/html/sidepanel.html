@@ -36,13 +36,16 @@
            
             <form method="get" id="search" >
               <label  for="Search" class="adv-search">Search:</label>
-              <input class= "adv-input" type="text" placeholder="Query..."><br><br>
+              <input class= "adv-input" type="text" placeholder="Query..." name="search"><br><br>
         
-              <label for="api" class="adv-search">Api Key:</label>
-              <input class= "adv-input" type="text" placeholder="Your Key..."><br><br>
+              <label for="api" class="adv-search">Springer Key:</label>
+              <input id="apiInput" class= "adv-input" type="text" placeholder="Your Key..." name="springer"><br><br>
+
+              <label for="api" class="adv-search">Google Scholar Key:</label>
+              <input id="apiInput" class= "adv-input" type="text" placeholder="Your Key..." name="google"><br><br>
         
               <label for="Number of Papers" class="adv-search">Number of Papers:</label>
-              <input class= "adv-input" type="number" min="1" max="100" placeholder="100 Max"><br><br>
+              <input class= "adv-input" type="number" min="1" max="100" placeholder="100 Max" name="papers"><br><br>
               
               <button class="form-submit" type="submit" form="search" value="Submit">Submit</button>
           </form>
