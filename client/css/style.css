@@ -38,11 +38,9 @@ header .header{
   color: white;
 }
 
-#advanced-input {
+.advanced-input {
   -webkit-appearance: none;
   position: absolute; 
-  left: 25px; 
-  top: 15px;
   background-color: #757575;
   border-radius: 25px;
   padding: 5px 10px 8px 0;
@@ -53,7 +51,7 @@ header .header{
   cursor: pointer;
 }
 
-#advanced-input::after {
+.advanced-input::after {
   content: '';
   position: absolute;
   top: 5%;
@@ -66,12 +64,30 @@ header .header{
   transition: left .3s;
 }
 
-#advanced-input:checked{
+.advanced-input:checked{
   background-color: #68a047;
 }
 
-#advanced-input:checked::after{
+.advanced-input:checked::after{
   left: 45%;
+}
+
+#springer{
+  position: absolute;
+  top: 152px;
+  left: 40px; 
+}
+
+#google{
+  position: absolute;
+  top: 232px;
+  left: 10px; 
+}
+
+#archive{
+  position: absolute;
+  top: 304px;
+  left: 172px; 
 }
 
 .chat-container {
@@ -333,8 +349,9 @@ header .header{
 } 
 
 .adv-search{
-  color: rgb(138, 92, 40);
+  color: rgb(134, 93, 46);
   font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 20px;
 }
 
 .adv-input{
@@ -345,7 +362,6 @@ header .header{
   border-radius: 5px;
   box-sizing: border-box;
   text-align: left;
-  padding-left: 15px;
 }
 
 .form-submit{
