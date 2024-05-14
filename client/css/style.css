@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
 body {
-  font-family: "Barlow";
+  font-family: "Ubuntu";
   margin: 0;
   padding: 0;
   background-color: rgb(243, 236, 224);
@@ -38,11 +38,9 @@ header .header{
   color: white;
 }
 
-#advanced-input {
+.advanced-input {
   -webkit-appearance: none;
   position: absolute; 
-  left: 25px; 
-  top: 15px;
   background-color: #757575;
   border-radius: 25px;
   padding: 5px 10px 8px 0;
@@ -53,7 +51,7 @@ header .header{
   cursor: pointer;
 }
 
-#advanced-input::after {
+.advanced-input::after {
   content: '';
   position: absolute;
   top: 5%;
@@ -66,12 +64,30 @@ header .header{
   transition: left .3s;
 }
 
-#advanced-input:checked{
+.advanced-input:checked{
   background-color: #68a047;
 }
 
-#advanced-input:checked::after{
+.advanced-input:checked::after{
   left: 45%;
+}
+
+#springer{
+  position: absolute;
+  top: 152px;
+  left: 40px; 
+}
+
+#google{
+  position: absolute;
+  top: 232px;
+  left: 10px; 
+}
+
+#archive{
+  position: absolute;
+  top: 304px;
+  left: 172px; 
 }
 
 .chat-container {
@@ -138,6 +154,8 @@ header .header{
 
 .chat-container ul {
   list-style: none;  
+  padding: -10px; 
+  margin: -10px; 
 }
 
 .chat-container li {
@@ -331,8 +349,9 @@ header .header{
 } 
 
 .adv-search{
-  color: rgb(138, 92, 40);
+  color: rgb(134, 93, 46);
   font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 20px;
 }
 
 .adv-input{
@@ -343,7 +362,6 @@ header .header{
   border-radius: 5px;
   box-sizing: border-box;
   text-align: left;
-  padding-left: 15px;
 }
 
 .form-submit{
