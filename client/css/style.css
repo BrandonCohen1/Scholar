@@ -25,17 +25,11 @@ header .header{
   flex-shrink: 0;
 }
 
-#internet-icon {
-  position: absolute; 
-  right: 10px; 
-  background-color: transparent;
-  border: none;
-  padding: 5px 10px 8px 0;
-}
-
-#internet-icon .fa-solid {
+.right-aligned-button {
+  color: rgb(29, 48, 123);
   font-size: 20px;
-  color: white;
+  padding: 0 0 0 5px;
+  cursor: pointer;
 }
 
 .advanced-input {
@@ -171,6 +165,7 @@ header .header{
   color: rgb(29, 48, 123);
   font-size: 20px;
   padding: 0 0 0 5px;
+  cursor: pointer;
 }
 
 .file-info {
@@ -207,6 +202,12 @@ header .header{
   background-color: transparent;
   color: chocolate;
   outline: none; /* Removes focus outline */
+}
+.fa-regular.fa-paper-plane{
+  color: rgb(29, 48, 123);
+  font-size: 20px;
+  padding: 0 0 0 5px;
+  cursor: pointer;
 }
 .chat-input span {
   border: none;
