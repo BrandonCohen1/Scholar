@@ -297,7 +297,7 @@ header .header{
   border: 1px solid black;
   border-radius: 10px;
   z-index: 10;
-  background-color:rgb(152, 186, 209);
+  background-color:rgb(243, 158, 147);
   width: 500px;
   max-width: 80%;
 }
@@ -350,7 +350,7 @@ header .header{
 } 
 
 .adv-search{
-  color: rgb(134, 93, 46);
+  color: rgb(0, 0, 0);
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 20px;
 }
