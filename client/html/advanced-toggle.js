@@ -52,21 +52,38 @@ document.addEventListener('DOMContentLoaded', function() {
       formData.googleScholarApiKey = document.getElementById('googleApi').value;
     }
 
-    fetch('/your-backend-endpoint', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Success:', data);
-      closeModal(document.querySelector('#modal')); // Close modal on successful data submission
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-      // Optionally handle errors, e.g., keep the modal open, show an error message, etc.
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    let query = document.getElementById('querySearch').value;
+
+
+    let max_results = document.getElementById('maxResults').value;
+
+
+    let arxiv_active = document.getElementById('archive').checked;
+    console.log(arxiv_active)
+
+
+
+    const raw = "";
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow"
+    };
+
+    fetch(`https://fastapi-production-9440.up.railway.app/search_all?query=${query}&max_results=${max_results}&api_key_ns=${formData.springerApiKey}&api_key_gs=${formData.googleScholarApiKey}&arxiv_active=${arxiv_active}`, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result)
+        for (let data in result ){
+          console.log(data)
+        }
+
+      })
+      .catch((error) => console.error(error));
     });
-  });
 });
