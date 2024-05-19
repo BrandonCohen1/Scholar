@@ -1,3 +1,5 @@
+const chatBox2 = document.querySelector(".chat-container");
+
 document.addEventListener('DOMContentLoaded', function() {
   // Modal control
   const openModalButtons = document.querySelectorAll('[data-modal-target]');
@@ -56,15 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
     myHeaders.append("Content-Type", "application/json");
 
     let query = document.getElementById('querySearch').value;
-
-
     let max_results = document.getElementById('maxResults').value;
-
-
     let arxiv_active = document.getElementById('archive').checked;
-    console.log(arxiv_active)
-
-
+    console.log(arxiv_active);
 
     const raw = "";
 
@@ -78,12 +74,21 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch(`https://fastapi-production-9440.up.railway.app/search_all?query=${query}&max_results=${max_results}&api_key_ns=${formData.springerApiKey}&api_key_gs=${formData.googleScholarApiKey}&arxiv_active=${arxiv_active}`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result)
-        for (let data in result ){
-          console.log(data)
-        }
+        console.log(result);
+        let output = '';
+        for (let data of result) {
+          console.log(data);
+          output += `<a target="_blank" href='${data['url']}'>${data['title']}</a><p>${data['date']} · ${data['authors']}</p><blockquote>${data['abstract']}</blockquote><hr>`;
 
+        }
+        
+        chatBox2.innerHTML += `<span><img height=50 width=50 src="../images/search.png" style="vertical-align: top"></span>
+        <div class="chat-box chat-box-right">
+        ${output}
+        </div>
+          `;
+        closeModal(document.querySelector('#modal'));
       })
       .catch((error) => console.error(error));
-    });
+  });
 });
