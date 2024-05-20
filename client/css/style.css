@@ -622,4 +622,36 @@ tailwind generated
   left:0;
 }
 
+.chat-box-right {
+  display: flex;
+  align-items: top;
+  margin-bottom: 10px;
+  padding: 10px 10px 10px 14px;
+}
+
+.chat-box-right > span {
+  display: flex;
+  align-items: top; /* Centers the icon vertically relative to the text */
+  margin-right: 20px; /* Adds some space between the icon and the text */
+}
+
+.chat-box div {
+  background-color: rgb(248, 242, 234);
+}
+.search-result-item {
+  padding-left: 10px; /* Adds padding to the left of the search result items for better alignment */
+  color: rgb(29, 48, 123);
+}
+
+.search-result-item p {
+  margin-top: 0px;
+  font-size: 14px;
+}
+
+.search-result-item blockquote {
+  font-size: 12px;
+}
+
+
+
 

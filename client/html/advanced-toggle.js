@@ -73,20 +73,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
     fetch(`https://fastapi-production-9440.up.railway.app/search_all?query=${query}&max_results=${max_results}&api_key_ns=${formData.springerApiKey}&api_key_gs=${formData.googleScholarApiKey}&arxiv_active=${arxiv_active}`, requestOptions)
       .then((response) => response.json())
-      .then((result) => {
+      .then(result => {
         console.log(result);
         let output = '';
-        for (let data of result) {
-          console.log(data);
-          output += `<a target="_blank" href='${data['url']}'>${data['title']}</a><p>${data['date']} · ${data['authors']}</p><blockquote>${data['abstract']}</blockquote><hr>`;
-
+        if (result.length === 0) {
+          output = "No results found";
+        } else {
+          for (let data of result) {
+            console.log(data);
+            output += `
+              <div class="search-result-item">
+                <a target="_blank" href='${data['url']}'>${data['title']}</a>
+                <p>${data['date']} · ${data['authors']}</p>
+                <blockquote>${data['abstract']}</blockquote>
+              </div>
+            `;
+          }
         }
-        
-        chatBox2.innerHTML += `<span><img height=50 width=50 src="../images/search.png" style="vertical-align: top"></span>
-        <div class="chat-box chat-box-right">
-        ${output}
-        </div>
-          `;
+      
+        chatBox2.innerHTML += `
+          <div class="chat-box chat-box-right">
+            <span><img src="../images/search.png" height="20" width="20" style="vertical-align: top"></span>
+            <div>${output}</div>
+          </div>
+        `;
         closeModal(document.querySelector('#modal'));
       })
       .catch((error) => console.error(error));
