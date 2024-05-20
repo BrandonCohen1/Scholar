@@ -8,43 +8,6 @@ The core mission of Scholar is to enhance user activity on the internet. Unlike 
 
 Scholar differentiates itself by offering guidance to enhance users' existing writing rather than authoring content on their behalf. This approach ensures that while the quality of text is improved, the integrity and originality of the user's voice are preserved.
 
-## Usage
-
-To get started, follow these steps:
-
-1. Environment setup
-  - Change `.env.example` file name to `.env`
-  - Add your OpenAI API key in the .env file like so:
-
-    ```phyton
-    OPENAI_API_KEY = "your_api_key_here"
-    ```
-
-
-2. Getting OpenAI API_KEY
-  - Visit [OpenAI](https://platform.openai.com/docs/introduction), and log in or register.
-  - Navigate to the API Keys section and click on **create new secret keys**.
-  - Copy the generated secret key and paste it into your '**.env**' file.
-
-
-## Deployment
-
-To deploy Scholar locally:
-
-1. Install Dependencies:
-  - Run the following command in the project's '**root-directory/server**' to install necessary dependencies
-
-      ```bash
-      npm install
-      ```
-
-2. Start the Server
-  - Use '**nodemon**' to run your server for live reloading during development
-  
-    ```bash
-    npm run dev
-     ```
-
 ## Adding extension to Chrome Browser
 
 To install the "Scholar" extension in your Chrome browser and start enhancing your research and writing process, follow these steps:
@@ -55,3 +18,25 @@ To install the "Scholar" extension in your Chrome browser and start enhancing yo
 4. **Scholar** should now appear in the extensions list and be ready to use.
 
 With these steps, you should have Scholar set up and running. Dive into your research and writing tasks with enhanced confidence and support!
+
+
+
+# Obtaining API Keys
+
+## Nature Springer Key
+
+1. Visit the Nature Springer API portal at Springer Nature Developer Portal.
+2. Register or log in to create an account.
+3. Navigate to the API section and apply for an API key for the services you intend to use.
+4. Once approved, your API key will be available on your dashboard.
+
+## Google Scholar Key
+
+_Google Scholar does not officially provide an API or an API key. However, you can access limited data from Google Scholar using third-party scraping APIs that require keys:_
+
+1. Visit a third-party API provider like SerpAPI.
+2. Sign up and navigate to obtain an API key.
+3. Use this API key to configure your extension for accessing Google Scholar data indirectly.
+4. Ensure you comply with the terms of service for any third-party service you use.
+
+### Dive into your research and writing tasks with enhanced confidence and support, facilitated by the Scholar extension!
