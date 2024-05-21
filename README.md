@@ -92,7 +92,20 @@ used to call outside APIs.
 used for some pdf processing
 
 #### google-search-results
-used to get google schollar pdfs
+used to get Google Scholar PDFs
+### faiss cpu
+a vector database to search pdfs and search
+
+## Technologies
+### Chat LLM
+An AI model trained on vast amounts of text that could be used for question answering, text extraction, or other purposes. Used in this project to generate searches and answer questions.
+
+### Embeddings
+Text represented in vector form that could be used to search for text with similar ideas or answers to questions by vectorizing documents containing what you are looking for. Used for embedding both the search results and the PDFs to not take up as much of the LLM's context window.
+
+### Vector Database
+Used to do similarity search over the vectors form search and pdfs.
+
 
 ## backend deployment
 we deployed our backend to railway, it is set up to auto-redeploy when we push to repo similar to this [article](https://faun.pub/deploy-a-fastapi-website-to-railway-c08df2a1e878). Our backend is made using FastAPI, it relies heavily on OpenAI to power our AI.
