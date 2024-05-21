@@ -71,6 +71,29 @@ groq==0.5.0
 google-search-results==2.4.2
 ```
 
+### selected packages descriptions
+
+#### fastapi
+API framework to deploy python apps.
+
+#### hypercorn
+used to run server.
+
+#### openai
+used to call openai hosted models.
+
+#### python-dotenv
+used to access .env
+
+#### requests
+used to call outside APIs.
+
+#### langchain , langchain-community  and langchain-openai
+used for some pdf processing
+
+#### google-search-results
+used to get google schollar pdfs
+
 ## backend deployment
 we deployed our backend to railway, it is set up to auto-redeploy when we push to repo similar to this [article](https://faun.pub/deploy-a-fastapi-website-to-railway-c08df2a1e878). Our backend is made using FastAPI, it relies heavily on OpenAI to power our AI.
 
