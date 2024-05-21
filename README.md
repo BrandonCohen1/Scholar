@@ -8,6 +8,16 @@ The core mission of Scholar is to enhance user activity on the internet. Unlike 
 
 Scholar differentiates itself by offering guidance to enhance users' existing writing rather than authoring content on their behalf. This approach ensures that while the quality of text is improved, the integrity and originality of the user's voice are preserved.
 
+## Other links
+
+[training data for scholar](https://huggingface.co/datasets/sruly/Scholar)
+
+[backend code](https://github.com/codeForX/ScholarBackend)
+
+[unused search llm dataset](https://huggingface.co/datasets/sruly/search_training_data.csv)
+
+[api endpoint](https://fastapi-production-9440.up.railway.app/)
+
 ## Adding extension to Chrome Browser
 
 To install the "Scholar" extension in your Chrome browser and start enhancing your research and writing process, follow these steps:
@@ -21,7 +31,7 @@ With these steps, you should have Scholar set up and running. Dive into your res
 
 
 
-# Obtaining API Keys
+## Obtaining API Keys
 
 ## Nature Springer Key
 To access your API key for Nature Springer, please visit [Nature Springer API](https://www.springeropen.com/get-published/indexing-archiving-and-access-to-data/api).
