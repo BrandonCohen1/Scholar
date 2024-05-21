@@ -47,3 +47,31 @@ _Google Scholar does not officially provide an API or an API key. However, you c
 To access your API key for Google Scholar, please visit [SerpAPI](https://serpapi.com/). 
 
 ### Dive into your research and writing tasks with enhanced confidence and support, facilitated by the Scholar extension!
+
+
+## backend packages
+built using Python deployed on railway.
+
+
+the packages needed to run are:
+```
+fastapi==0.100.0
+hypercorn==0.14.4
+openai==1.14.1
+python-dotenv==1.0.1
+requests==2.31.0
+bleach==6.1.0
+markdown==3.6
+faiss-cpu==1.8.0
+langchain==0.1.13
+langchain-openai==0.1.1
+pypdf==4.1.0
+langchain-community==0.0.29
+python-multipart==0.0.9
+groq==0.5.0
+google-search-results==2.4.2
+```
+
+## backend deployment
+we deployed our backend to railway, it is setup to auto redeploy when we push to repo. 
+
