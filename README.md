@@ -46,7 +46,6 @@ _Google Scholar does not officially provide an API or an API key. However, you c
 
 To access your API key for Google Scholar, please visit [SerpAPI](https://serpapi.com/). 
 
-### Dive into your research and writing tasks with enhanced confidence and support, facilitated by the Scholar extension!
 
 
 ## backend packages
@@ -74,4 +73,7 @@ google-search-results==2.4.2
 
 ## backend deployment
 we deployed our backend to railway, it is setup to auto redeploy when we push to repo. 
+
+
+### Dive into your research and writing tasks with enhanced confidence and support, facilitated by the Scholar extension!
 
