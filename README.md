@@ -72,7 +72,7 @@ google-search-results==2.4.2
 ```
 
 ## backend deployment
-we deployed our backend to railway, it is setup to auto redeploy when we push to repo. 
+we deployed our backend to railway, it is set up to auto-redeploy when we push to repo similar to this [article](https://faun.pub/deploy-a-fastapi-website-to-railway-c08df2a1e878). Our backend is made using FastAPI, it relies heavily on OpenAI to power our AI.
 
 
 ### Dive into your research and writing tasks with enhanced confidence and support, facilitated by the Scholar extension!
