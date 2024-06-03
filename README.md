@@ -12,18 +12,18 @@ Scholar differentiates itself by offering guidance to enhance users' existing wr
 
 [training data for scholar](https://huggingface.co/datasets/sruly/Scholar)
 
-[backend code](https://github.com/codeForX/ScholarBackend)
+[backend code](https://github.com/codeForX/ScholarBackend) (private repo)
 
 [unused search llm dataset](https://huggingface.co/datasets/sruly/search_training_data.csv)
 
 [api endpoint](https://fastapi-production-9440.up.railway.app/)
 
-## Adding extension to Chrome Browser
+## Adding the extension to Chrome Browser
 
 To install the "Scholar" extension in your Chrome browser and start enhancing your research and writing process, follow these steps:
 
 1. Visit *chrome://extensions/*
-2. Tuen on the toogle for "**Developer mode**" at the top right
+2. turn on the toggle for "**Developer mode**" at the top right
 3. Click "**Load unpacked**" and select your extension's folder
 4. **Scholar** should now appear in the extensions list and be ready to use.
 
@@ -36,7 +36,7 @@ With these steps, you should have Scholar set up and running. Dive into your res
 ## Nature Springer Key
 To access your API key for Nature Springer, please visit [Nature Springer API](https://www.springeropen.com/get-published/indexing-archiving-and-access-to-data/api).
 
-1. Register or login to create an account.
+1. Register or log in to create an account.
 2. Navigate to the API section and apply for an API key for the services you intend to use.
 3. Once approved, your API key will be available on your dashboard.
 
@@ -45,66 +45,6 @@ To access your API key for Nature Springer, please visit [Nature Springer API](h
 _Google Scholar does not officially provide an API or an API key. However, you can access limited data from Google Scholar using THE third-party scraping API called SERP:_
 
 To access your API key for Google Scholar, please visit [SerpAPI](https://serpapi.com/). 
-
-
-
-## backend packages
-built using Python deployed on railway.
-
-
-the packages needed to run are:
-```
-fastapi==0.100.0
-hypercorn==0.14.4
-openai==1.14.1
-python-dotenv==1.0.1
-requests==2.31.0
-bleach==6.1.0
-markdown==3.6
-faiss-cpu==1.8.0
-langchain==0.1.13
-langchain-openai==0.1.1
-pypdf==4.1.0
-langchain-community==0.0.29
-python-multipart==0.0.9
-groq==0.5.0
-google-search-results==2.4.2
-```
-
-### selected packages descriptions
-
-#### fastapi
-API framework to deploy python apps.
-
-#### hypercorn
-used to run server.
-
-#### openai
-used to call openai hosted models.
-
-#### python-dotenv
-used to access .env
-
-#### requests
-used to call outside APIs.
-
-#### langchain , langchain-community  and langchain-openai
-used for some pdf processing
-
-#### google-search-results
-used to get Google Scholar PDFs
-### faiss cpu
-a vector database to search pdfs and search
-
-## Technologies
-### Chat LLM
-An AI model trained on vast amounts of text that could be used for question answering, text extraction, or other purposes. Used in this project to generate searches and answer questions.
-
-### Embeddings
-Text represented in vector form that could be used to search for text with similar ideas or answers to questions by vectorizing documents containing what you are looking for. Used for embedding both the search results and the PDFs to not take up as much of the LLM's context window.
-
-### Vector Database
-Used to do similarity search over the vectors form search and pdfs.
 
 
 ## backend deployment
