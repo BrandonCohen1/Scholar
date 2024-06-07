@@ -23,14 +23,14 @@ With these steps, you should have Scholar set up and running. Dive into your res
 
 ## Obtaining API Keys
 
-## Nature Springer Key
+### Nature Springer Key
 To access your API key for Nature Springer, please visit [Nature Springer API](https://www.springeropen.com/get-published/indexing-archiving-and-access-to-data/api).
 
 1. Register or log in to create an account.
 2. Navigate to the API section and apply for an API key for the services you intend to use.
 3. Once approved, your API key will be available on your dashboard.
 
-## Google Scholar Key
+### Google Scholar Key
 
 _Google Scholar does not officially provide an API or an API key. However, you can access limited data from Google Scholar using THE third-party scraping API called SERP:_
 
