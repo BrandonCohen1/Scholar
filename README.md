@@ -8,18 +8,6 @@ The core mission of Scholar is to enhance user activity on the internet. Unlike 
 
 Scholar differentiates itself by offering guidance to enhance users' existing writing rather than authoring content on their behalf. This approach ensures that while the quality of text is improved, the integrity and originality of the user's voice are preserved.
 
-## Other links
-
-[Training data for scholar](https://huggingface.co/datasets/sruly/Scholar)
-
-[Private backend code](https://github.com/codeForX/ScholarBackend) (private repo)
-
-[Public backend code](https://github.com/codeForX/Scholar-Backend) (public,however some code may be misattributed)
-
-[Unused search llm dataset](https://huggingface.co/datasets/sruly/search_training_data.csv)
-
-[API endpoint](https://fastapi-production-9440.up.railway.app/)
-
 ## Adding the extension to Chrome Browser
 
 To install the "Scholar" extension in your Chrome browser and start enhancing your research and writing process, follow these steps:
@@ -51,6 +39,18 @@ To access your API key for Google Scholar, please visit [SerpAPI](https://serpap
 
 ## backend deployment
 we deployed our backend to railway, it is set up to auto-redeploy when we push to repo similar to this [article](https://faun.pub/deploy-a-fastapi-website-to-railway-c08df2a1e878). Our backend is made using FastAPI, it relies heavily on OpenAI to power our AI.
+
+## links
+
+[Training data for scholar](https://huggingface.co/datasets/sruly/Scholar)
+
+[Private backend code](https://github.com/codeForX/ScholarBackend) (private repo)
+
+[Public backend code](https://github.com/codeForX/Scholar-Backend) (public, however some code may be misattributed)
+
+[Unused search llm dataset](https://huggingface.co/datasets/sruly/search_training_data.csv)
+
+[API endpoint](https://fastapi-production-9440.up.railway.app/)
 
 
 ### Dive into your research and writing tasks with enhanced confidence and support, facilitated by the Scholar extension!
