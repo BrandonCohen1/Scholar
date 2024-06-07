@@ -10,13 +10,15 @@ Scholar differentiates itself by offering guidance to enhance users' existing wr
 
 ## Other links
 
-[training data for scholar](https://huggingface.co/datasets/sruly/Scholar)
+[Training data for scholar](https://huggingface.co/datasets/sruly/Scholar)
 
-[backend code](https://github.com/codeForX/ScholarBackend) (private repo)
+[Private backend code](https://github.com/codeForX/ScholarBackend) (private repo)
 
-[unused search llm dataset](https://huggingface.co/datasets/sruly/search_training_data.csv)
+[Public backend code](https://github.com/codeForX/Scholar-Backend) (public,however some code may be misattributed)
 
-[api endpoint](https://fastapi-production-9440.up.railway.app/)
+[Unused search llm dataset](https://huggingface.co/datasets/sruly/search_training_data.csv)
+
+[API endpoint](https://fastapi-production-9440.up.railway.app/)
 
 ## Adding the extension to Chrome Browser
 
